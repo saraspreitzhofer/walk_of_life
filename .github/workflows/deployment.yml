@@ -1,25 +1,33 @@
-name: SFTP Deploy
-  # You may pin to the exact commit or the version.
-  # uses: wlixcc/SFTP-Deploy-Action@da88a4dbe95286266bbac3c0b2b8284048d20c8f
-  uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-  with:
-    # username
-    username: wof
-    # your sftp server
-    server: atria.uberspace.de
-    # your sftp server port, default to 22
-    port: # default is 22
-    # you can copy private_key from your *.pem file, keep format
-    ssh_private_key: 
-    # will put all file under this path
-    local_path: # default is ./*
-    # files will copy to under remote_path
-    remote_path: /var/www/virtual/wof/html
-    # connection via sftp protocol only
-    sftp_only: # optional
-    # sftp args
-    sftpArgs: # optional
-    # This operation will delete all files in the remote path before upload. Please be careful set this to true
-    delete_remote_files: # optional
-    # SSH passsword，If a password is set, the secret key pair is ignored
-    password: ${{ secrets.SFTP_PW }} # optional
+name: Deploy Files
+
+on:
+  push:
+    branches:
+      - master
+  # Enables manually triggering of Workflow with file synchronization option
+  workflow_dispatch:
+    inputs:
+      sync:
+        description: "File synchronization"
+        required: true
+        default: "delta"
+
+jobs:
+  deploy-master:
+    name: "master branch"
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: "Deploy"
+        uses: milanmk/actions-file-deployer@master
+        with:
+          remote-protocol: "sftp"
+          remote-host: "atria.uberspace.de"
+          remote-user: "wof"
+          ssh-private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          remote-path: "/var/www/virtual/wof/html"
