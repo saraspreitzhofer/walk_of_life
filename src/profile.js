@@ -1,6 +1,6 @@
 
-let profileDiv = document.getElementById("profileDiv")
-/// let name = document.getElementById("animal_name")
+let profileDiv = document.getElementById("profile")
+// let name = document.getElementById("animal_name")
 let name = "test"
 
 let text = document.createElement("h1")
