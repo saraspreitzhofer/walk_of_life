@@ -55,3 +55,27 @@ AFRAME.registerComponent('modify-materials', {
         });
     }
 });
+
+
+let i = 100;
+function move() {
+    if (i === 100) {
+        i = 99;
+        let elem = document.getElementById("myBar");
+        let width = 100;
+        let id = setInterval(frame, 10);
+        function frame() {
+            if (width <= 0) {
+                clearInterval(id);
+                i = 100;
+            } else {
+                width -= 0.25;
+                elem.style.width = width + "%";
+                if (width % 1 === 0){
+                    elem.innerHTML = "Thirst: " + width + "%";
+                }
+
+            }
+        }
+    }
+}
