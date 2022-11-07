@@ -3,6 +3,8 @@
 let scene
 let buttonPet = document.getElementById("pet")
 let buttonFeed = document.getElementById("feed")
+let buttonDrink = document.getElementById("drink")
+let buttonWalk = document.getElementById("walk")
 let dog
 
 //let dog = document.querySelector("[gltf-model]").object3D
@@ -24,6 +26,8 @@ function init() {
     //}
     buttonPet.addEventListener('click', giveWater)
     buttonFeed.addEventListener('click', onButtonFeed)
+    buttonDrink.addEventListener('click', onButtonDrink)
+    buttonWalk.addEventListener('click', onButtonWalk)
 }
 
 function onButtonPet() {
@@ -34,6 +38,14 @@ function onButtonFeed() {
     console.log("button feed")
     console.log(dog)
     dog.position.x += 20;
+}
+
+function onButtonWalk(){
+    console.log("button walk")
+}
+
+function onButtonDrink(){
+    console.log("Button Drink")
 }
 
 init()
