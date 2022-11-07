@@ -1,3 +1,12 @@
+@font-face {
+    font-family: walk_of_life_font;
+    src: url(../assets/font/Raleway/Raleway-VariableFont_wght.ttf);
+}
+
+*{
+    font-family: walk_of_life_font, Serif;
+}
+
 .button{
     width: 48%;
     height: 100%;
@@ -28,8 +37,21 @@
     width: 100%;
 }
 
+#profileDiv{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: white;
+    padding: 20px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}
+
 #myProgress {
-    width: 10%;
+    width: 100%;
     background-color: grey;
 }
 

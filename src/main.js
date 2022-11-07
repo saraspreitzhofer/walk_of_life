@@ -11,7 +11,7 @@ function init() {
     console.log(("hello world"))
     scene = document.getElementsByName("a-scene")
     //if (scene.hasLoaded){
-    dog = document.querySelector("a-asset-item").object3D('mesh')
+    //dog = document.querySelector("a-asset-item").object3D('mesh')
     /*dog.traverse(node => {
             if (node.name === "Sketchfab_model") {
                 console.log("sketchfab loaded")
@@ -22,7 +22,7 @@ function init() {
         }
     )*/
     //}
-    buttonPet.addEventListener('click', onButtonPet)
+    buttonPet.addEventListener('click', move)
     buttonFeed.addEventListener('click', onButtonFeed)
 }
 
@@ -37,24 +37,6 @@ function onButtonFeed() {
 }
 
 init()
-
-
-AFRAME.registerComponent('modify-materials', {
-    init: function () {
-        // Wait for model to load.
-        this.el.addEventListener('model-loaded', () => {
-            // Grab the mesh / scene.
-            console.log("model loaded")
-            const obj = this.el.getObject3D('mesh');
-            // Go over the submeshes and modify materials we want.
-            obj.traverse(node => {
-                if (node.name.indexOf('ship') !== -1) {
-                    node.material.color.set('red');
-                }
-            });
-        });
-    }
-});
 
 
 let i = 100;
