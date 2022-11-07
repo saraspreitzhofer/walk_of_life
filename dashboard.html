@@ -10,8 +10,7 @@
     <h1>Welcome to Walk Of Life!</h1>
     <h3>Please select your preferred animal</h3>
 
-    <!--<form onsubmit="submitForm">-->
-    <form action="./index.html">
+    <form action="javascript:void(0)" onSubmit="submitForm">
         <div class="animal_container">
             <div id="js-pointer" class="animal_pointer"></div>
             <div class="animal_view">
@@ -25,12 +24,13 @@
             </div>
         </div>
         <p>Please provide a name for your selected animal:</p>
-        <input id="animal_name"/><br>
-        <button>Start walking your animal!</button>
+        <input id="animal_name" type="text"/><br>
+        <input type="submit">
     </form>
 </div>
 
 <script type="module" src="src/profile.js"></script>
 
 </body>
+
 </html>
