@@ -22,7 +22,7 @@ function init() {
         }
     )*/
     //}
-    buttonPet.addEventListener('click', move)
+    buttonPet.addEventListener('click', giveWater)
     buttonFeed.addEventListener('click', onButtonFeed)
 }
 
@@ -40,11 +40,12 @@ init()
 
 
 let i = 100;
+let width;
 function move() {
     if (i === 100) {
         i = 99;
         let elem = document.getElementById("myBar");
-        let width = 100;
+        width = 100;
         let id = setInterval(frame, 10);
         function frame() {
             if (width <= 0) {
@@ -56,8 +57,18 @@ function move() {
                 if (width % 1 === 0){
                     elem.innerHTML = "Thirst: " + width + "%";
                 }
-
             }
         }
     }
+}
+
+move()
+
+function giveWater(){
+    if (width < 75){
+        width += 25;
+    } else {
+        width = 100;
+    }
+
 }
