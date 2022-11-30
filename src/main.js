@@ -17,20 +17,24 @@ let widthDrink;
 let barArray = [{
     id: 'petBar',
     i: 100,
-    width: 100
+    width: 100,
+    text: 'Pet: '
 }, {
     id: 'walkBar',
     i: 100,
-    width: 100
-},{
+    width: 100,
+    text: 'Lulu: '
+}, {
     id: 'thirstBar',
     i: 100,
-    width: 100
-},{
+    width: 100,
+    text: 'Thirst: '
+}, {
     id: 'hungerBar',
     i: 100,
-    width: 100
-},
+    width: 100,
+    text: 'Hunger: '
+}
 ]
 
 
@@ -110,7 +114,7 @@ function movePet() {
                     barArray[x].width -= 0.25;
                     elem.style.width = barArray[x].width + "%";
                     if (barArray[x].width % 1 === 0){
-                        elem.innerHTML = "Pet: " + barArray[x].width + "%";
+                        elem.innerHTML = barArray[x].text + barArray[x].width + "%";
                     }
                 }
             }
