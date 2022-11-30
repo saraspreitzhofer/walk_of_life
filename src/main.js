@@ -13,6 +13,27 @@ let widthWalk;
 let widthFeed;
 let widthDrink;
 
+
+let barArray = [{
+    id: 'petBar',
+    i: 100,
+    width: 100
+}, {
+    id: 'walkBar',
+    i: 100,
+    width: 100
+},{
+    id: 'thirstBar',
+    i: 100,
+    width: 100
+},{
+    id: 'hungerBar',
+    i: 100,
+    width: 100
+},
+]
+
+
 //let dog = document.querySelector("[gltf-model]").object3D
 
 function init() {
@@ -36,66 +57,67 @@ function init() {
     buttonDrink.addEventListener('click', onButtonDrink)
 }
 
+// hardcoded array positions lmao fight me
 function onButtonPet(){
     console.log("button pet")
-    if (widthPet < 75){
-        widthPet += 25;
+    if (barArray[0].width < 75){
+        barArray[0].width += 25;
     } else {
-        widthPet = 100;
+        barArray[0].width = 100;
     }
 }
 
 function onButtonWalk(){
     console.log("button walk")
-    if (widthWalk < 75){
-        widthWalk += 25;
+    if (barArray[1].width < 75){
+        barArray[1].width += 25;
     } else {
-        widthWalk = 100;
+        barArray[1].width = 100;
     }
 }
 
 function onButtonFeed() {
     console.log("button feed")
-    //console.log(dog)
-    //dog.position.x += 20;
-    if (widthFeed < 75){
-        widthFeed += 25;
+    if (barArray[3].width < 75){
+        barArray[3].width += 25;
     } else {
-        widthFeed = 100;
+        barArray[3].width = 100;
     }
 }
 
 function onButtonDrink(){
     console.log("button drink")
-    if (widthDrink < 75){
-        widthDrink += 25;
+    if (barArray[2].width < 75){
+        barArray[2].width += 25;
     } else {
-        widthDrink = 100;
+        barArray[2].width = 100;
     }
 
 }
 
 function movePet() {
-    if (i === 100) {
-        i = 99;
-        let elem = document.getElementById("petBar");
-        widthPet = 100;
-        let id = setInterval(frame, 10);
-        function frame() {
-            if (widthPet <= 0) {
-                clearInterval(id);
-                i = 100;
-            } else {
-                widthPet -= 0.25;
-                elem.style.width = widthPet + "%";
-                if (widthPet % 1 === 0){
-                    elem.innerHTML = "Pet: " + widthPet + "%";
+    for (let x = 0; x < barArray.length; x++){
+        if (barArray[x].i === 100) {
+            barArray[x].i = 99;
+            let elem = document.getElementById(barArray[x].id);
+            barArray[x].width = 100;
+            let id = setInterval(frame, 10);
+            function frame() {
+                if (barArray[x].width <= 0) {
+                    clearInterval(id);
+                    barArray[x].i = 100;
+                } else {
+                    barArray[x].width -= 0.25;
+                    elem.style.width = barArray[x].width + "%";
+                    if (barArray[x].width % 1 === 0){
+                        elem.innerHTML = "Pet: " + barArray[x].width + "%";
+                    }
                 }
             }
         }
     }
 }
-
+/*
 function moveWalk() {
     if (i === 100) {
         i = 99;
@@ -157,13 +179,13 @@ function moveThirst() {
             }
         }
     }
-}
+}*/
 
 init()
 
 movePet()
-moveWalk()
-moveHunger()
-moveThirst()
+//moveWalk()
+//moveHunger()
+//moveThirst()
 
 
