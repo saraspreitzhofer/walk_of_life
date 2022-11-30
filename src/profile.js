@@ -6,6 +6,9 @@ queryString.split(/\&/).forEach(function(keyValuePair) {
     GET[paramName] = paramValue;
 });
 
+var ahhhh = document.getElementsByTagName("a-asset-item")
+console.log(ahhhh)
+
 
 let profileDiv = document.getElementById("profile")
 // let name = document.getElementById("animal_name")

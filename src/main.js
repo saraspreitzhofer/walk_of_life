@@ -3,6 +3,7 @@ let buttonPet = document.getElementById("pet")
 let buttonFeed = document.getElementById("feed")
 let buttonDrink = document.getElementById("drink")
 let buttonWalk = document.getElementById("walk")
+let dog = document.getElementById("avatarModel")
 
 
 /**
@@ -65,6 +66,8 @@ function onButtonWalk(){
 
 function onButtonFeed() {
     console.log("button feed")
+    //TODO: How to start foodButtonPressed animation from index.html --> https://aframe.io/docs/1.3.0/components/animation.html#sidebar
+    dog.emit('foodButtonPressed', null, false)
     if (barArray[3].width < 75){
         barArray[3].width += 25;
     } else {
