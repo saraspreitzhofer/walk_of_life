@@ -7,6 +7,12 @@ let buttonDrink = document.getElementById("drink")
 let buttonWalk = document.getElementById("walk")
 let dog
 
+let i = 100;
+let widthPet;
+let widthWalk;
+let widthFeed;
+let widthDrink;
+
 //let dog = document.querySelector("[gltf-model]").object3D
 
 function init() {
@@ -24,63 +30,140 @@ function init() {
         }
     )*/
     //}
-    buttonPet.addEventListener('click', giveWater)
+    buttonPet.addEventListener('click', onButtonPet)
+    buttonWalk.addEventListener('click', onButtonWalk)
     buttonFeed.addEventListener('click', onButtonFeed)
     buttonDrink.addEventListener('click', onButtonDrink)
-    buttonWalk.addEventListener('click', onButtonWalk)
 }
 
-function onButtonPet() {
+function onButtonPet(){
     console.log("button pet")
-}
-
-function onButtonFeed() {
-    console.log("button feed")
-    console.log(dog)
-    dog.position.x += 20;
+    if (widthPet < 75){
+        widthPet += 25;
+    } else {
+        widthPet = 100;
+    }
 }
 
 function onButtonWalk(){
     console.log("button walk")
+    if (widthWalk < 75){
+        widthWalk += 25;
+    } else {
+        widthWalk = 100;
+    }
+}
+
+function onButtonFeed() {
+    console.log("button feed")
+    //console.log(dog)
+    //dog.position.x += 20;
+    if (widthFeed < 75){
+        widthFeed += 25;
+    } else {
+        widthFeed = 100;
+    }
 }
 
 function onButtonDrink(){
-    console.log("Button Drink")
+    console.log("button drink")
+    if (widthDrink < 75){
+        widthDrink += 25;
+    } else {
+        widthDrink = 100;
+    }
+
 }
 
-init()
-
-
-let i = 100;
-let width;
-function move() {
+function movePet() {
     if (i === 100) {
         i = 99;
-        let elem = document.getElementById("myBar");
-        width = 100;
+        let elem = document.getElementById("petBar");
+        widthPet = 100;
         let id = setInterval(frame, 10);
         function frame() {
-            if (width <= 0) {
+            if (widthPet <= 0) {
                 clearInterval(id);
                 i = 100;
             } else {
-                width -= 0.25;
-                elem.style.width = width + "%";
-                if (width % 1 === 0){
-                    elem.innerHTML = "Thirst: " + width + "%";
+                widthPet -= 0.25;
+                elem.style.width = widthPet + "%";
+                if (widthPet % 1 === 0){
+                    elem.innerHTML = "Pet: " + widthPet + "%";
                 }
             }
         }
     }
 }
 
-move()
-
-function giveWater(){
-    if (width < 75){
-        width += 25;
-    } else {
-        width = 100;
+function moveWalk() {
+    if (i === 100) {
+        i = 99;
+        let elem = document.getElementById("walkBar");
+        widthWalk = 100;
+        let id = setInterval(frame, 10);
+        function frame() {
+            if (widthWalk <= 0) {
+                clearInterval(id);
+                i = 100;
+            } else {
+                widthWalk -= 0.25;
+                elem.style.width = widthWalk + "%";
+                if (widthWalk % 1 === 0){
+                    elem.innerHTML = "Walk: " + widthWalk + "%";
+                }
+            }
+        }
     }
-
 }
+
+function moveHunger() {
+    if (i === 100) {
+        i = 99;
+        let elem = document.getElementById("hungerBar");
+        widthFeed = 100;
+        let id = setInterval(frame, 10);
+        function frame() {
+            if (widthFeed <= 0) {
+                clearInterval(id);
+                i = 100;
+            } else {
+                widthFeed -= 0.25;
+                elem.style.width = widthFeed + "%";
+                if (widthFeed % 1 === 0){
+                    elem.innerHTML = "Hunger: " + widthFeed + "%";
+                }
+            }
+        }
+    }
+}
+
+function moveThirst() {
+    if (i === 100) {
+        i = 99;
+        let elem = document.getElementById("thirstBar");
+        widthDrink = 100;
+        let id = setInterval(frame, 10);
+        function frame() {
+            if (widthDrink <= 0) {
+                clearInterval(id);
+                i = 100;
+            } else {
+                widthDrink -= 0.25;
+                elem.style.width = widthDrink + "%";
+                if (widthDrink % 1 === 0){
+                    elem.innerHTML = "Thirst: " + widthDrink + "%";
+                }
+            }
+        }
+    }
+}
+
+init()
+
+movePet()
+moveWalk()
+moveHunger()
+moveThirst()
+
+

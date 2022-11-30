@@ -68,7 +68,7 @@ img{
     background-color: grey;
 }
 
-#myBar {
+.myBar {
     width: 100%;
     height: 30px;
     background-color: #04AA6D;
