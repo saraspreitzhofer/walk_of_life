@@ -1,3 +1,11 @@
+var GET = {};
+var queryString = window.location.search.replace(/^\?/, '');
+queryString.split(/\&/).forEach(function(keyValuePair) {
+    var paramName = keyValuePair.replace(/=.*$/, ""); // some decoding is probably necessary
+    var paramValue = keyValuePair.replace(/^[^=]*\=/, ""); // some decoding is probably necessary
+    GET[paramName] = paramValue;
+});
+
 
 let profileDiv = document.getElementById("profile")
 // let name = document.getElementById("animal_name")
@@ -5,7 +13,7 @@ let profileDiv = document.getElementById("profile")
 
 let text = document.createElement("h1")
 //let helloText = "Hello " + name + "!"
-let helloText = "Hello Kevin!"
+let helloText = "Hello " + GET["animal_name"] + "!"
 text.innerText = helloText
 
 let profilePic = document.createElement("img")
@@ -16,13 +24,3 @@ profilePic.alt = "dog_profile"
 profileDiv.appendChild(text)
 profileDiv.appendChild(profilePic)
 
-
-function submitForm(e){
-    //e.preventDefault()
-    let name2 = document.getElementById("animal_name")
-    console.log(name2)
-    //let name = document.getElementById("animal_name").value
-    //console.log(name)
-    //alert(name)
-
-}
