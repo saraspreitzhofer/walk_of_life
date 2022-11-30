@@ -1,19 +1,13 @@
-// import * as THREE from 'three'
-
 let scene
 let buttonPet = document.getElementById("pet")
 let buttonFeed = document.getElementById("feed")
 let buttonDrink = document.getElementById("drink")
 let buttonWalk = document.getElementById("walk")
-let dog
-
-let i = 100;
-let widthPet;
-let widthWalk;
-let widthFeed;
-let widthDrink;
 
 
+/**
+ * Array that contains information and state of all progress bars
+ */
 let barArray = [{
     id: 'petBar',
     i: 100,
@@ -38,28 +32,17 @@ let barArray = [{
 ]
 
 
-//let dog = document.querySelector("[gltf-model]").object3D
-
+/**
+ * Initialize scene and buttons
+ */
 function init() {
-    console.log(("hello world"))
     scene = document.getElementsByName("a-scene")
-    //if (scene.hasLoaded){
-    //dog = document.querySelector("a-asset-item").object3D('mesh')
-    /*dog.traverse(node => {
-            if (node.name === "Sketchfab_model") {
-                console.log("sketchfab loaded")
-            }
-            if (node.name === "12228_Dog_v1_L2objcleanermaterialmergergles") {
-                console.log("12228_Dog_v1_L2objcleanermaterialmergergles loaded")
-            }
-        }
-    )*/
-    //}
     buttonPet.addEventListener('click', onButtonPet)
     buttonWalk.addEventListener('click', onButtonWalk)
     buttonFeed.addEventListener('click', onButtonFeed)
     buttonDrink.addEventListener('click', onButtonDrink)
 }
+
 
 // hardcoded array positions lmao fight me
 function onButtonPet(){
@@ -99,10 +82,17 @@ function onButtonDrink(){
 
 }
 
+/**
+ * Iterate over barArray, update values for each one separately.
+ *
+ * Btw, der speed hängt mit dem id value zusammen, wenn man das timeout raufsetzt
+ * glaube ich dass man den speed weiter reduzieren kann. Didn't test though so good luck
+ *
+ */
 function movePet() {
     for (let x = 0; x < barArray.length; x++){
         if (barArray[x].i === 100) {
-            barArray[x].i = 99;
+            barArray[x].i = 99;             // wtf is this line btw
             let elem = document.getElementById(barArray[x].id);
             barArray[x].width = 100;
             let id = setInterval(frame, 10);
@@ -111,7 +101,7 @@ function movePet() {
                     clearInterval(id);
                     barArray[x].i = 100;
                 } else {
-                    barArray[x].width -= 0.25;
+                    barArray[x].width -= 0.125;   // change this to change speed
                     elem.style.width = barArray[x].width + "%";
                     if (barArray[x].width % 1 === 0){
                         elem.innerHTML = barArray[x].text + barArray[x].width + "%";
@@ -121,75 +111,8 @@ function movePet() {
         }
     }
 }
-/*
-function moveWalk() {
-    if (i === 100) {
-        i = 99;
-        let elem = document.getElementById("walkBar");
-        widthWalk = 100;
-        let id = setInterval(frame, 10);
-        function frame() {
-            if (widthWalk <= 0) {
-                clearInterval(id);
-                i = 100;
-            } else {
-                widthWalk -= 0.25;
-                elem.style.width = widthWalk + "%";
-                if (widthWalk % 1 === 0){
-                    elem.innerHTML = "Walk: " + widthWalk + "%";
-                }
-            }
-        }
-    }
-}
-
-function moveHunger() {
-    if (i === 100) {
-        i = 99;
-        let elem = document.getElementById("hungerBar");
-        widthFeed = 100;
-        let id = setInterval(frame, 10);
-        function frame() {
-            if (widthFeed <= 0) {
-                clearInterval(id);
-                i = 100;
-            } else {
-                widthFeed -= 0.25;
-                elem.style.width = widthFeed + "%";
-                if (widthFeed % 1 === 0){
-                    elem.innerHTML = "Hunger: " + widthFeed + "%";
-                }
-            }
-        }
-    }
-}
-
-function moveThirst() {
-    if (i === 100) {
-        i = 99;
-        let elem = document.getElementById("thirstBar");
-        widthDrink = 100;
-        let id = setInterval(frame, 10);
-        function frame() {
-            if (widthDrink <= 0) {
-                clearInterval(id);
-                i = 100;
-            } else {
-                widthDrink -= 0.25;
-                elem.style.width = widthDrink + "%";
-                if (widthDrink % 1 === 0){
-                    elem.innerHTML = "Thirst: " + widthDrink + "%";
-                }
-            }
-        }
-    }
-}*/
 
 init()
-
 movePet()
-//moveWalk()
-//moveHunger()
-//moveThirst()
 
 
