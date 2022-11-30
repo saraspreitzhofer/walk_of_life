@@ -63,9 +63,10 @@ img{
     height: 200px;
 }
 
-#myProgress {
+.myProgress {
     width: 100%;
     background-color: grey;
+    position: relative;
 }
 
 .myBar {
@@ -75,4 +76,5 @@ img{
     text-align: center; /* To center it horizontally (if you want) */
     line-height: 30px; /* To center it vertically */
     color: #000000;
+    position: relative;
 }
