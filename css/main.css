@@ -122,3 +122,19 @@ img{
         height: 100px;
     }
 }
+
+#gamemessage{
+    position: absolute;
+    margin: auto;
+    top: 10vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 30vh;
+    height: 30vh;
+    background-color: #ccc;
+    border-radius: 3px;
+    text-align: center;
+    font-family: walk_of_life_font, serif;
+    align-content: center;
+}

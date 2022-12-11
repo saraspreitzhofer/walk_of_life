@@ -3,8 +3,12 @@ let buttonPet = document.getElementById("pet")
 let buttonFeed = document.getElementById("feed")
 let buttonDrink = document.getElementById("drink")
 let buttonWalk = document.getElementById("walk")
-let dog = document.getElementById("avatarModel")
+let dog = document.getElementsByTagName("a-asset-item").namedItem('avatarModel')
+let sceneEl = document.querySelector('a-scene')
+let entity = sceneEl.querySelector('a-entity')
+let gameEnded = document.getElementById('gamemessage')
 
+gameEnded.style.display = "none"
 
 /**
  * Array that contains information and state of all progress bars
@@ -67,7 +71,8 @@ function onButtonWalk(){
 function onButtonFeed() {
     console.log("button feed")
     //TODO: How to start foodButtonPressed animation from index.html --> https://aframe.io/docs/1.3.0/components/animation.html#sidebar
-    dog.emit('foodButtonPressed', null, false)
+    console.log(entity)
+    entity.emit('foodButtonPressed', null, false)
     if (barArray[3].width < 75){
         barArray[3].width += 25;
     } else {
@@ -82,6 +87,17 @@ function onButtonDrink(){
     } else {
         barArray[2].width = 100;
     }
+}
+
+function checkIfAnimalIsDead(){
+    if(barArray[0].width < 1 && barArray[1].width < 1 && barArray[2].width < 1  && barArray[3].width < 1){
+        animalIsDead()
+    }
+}
+
+function animalIsDead(){
+    console.log("here")
+    gameEnded.style.display = "block"
 
 }
 
@@ -95,7 +111,7 @@ function onButtonDrink(){
 function movePet() {
     for (let x = 0; x < barArray.length; x++){
         if (barArray[x].i === 100) {
-            barArray[x].i = 99;             // wtf is this line btw
+            barArray[x].i = 99;      // wtf is this line btw
             let elem = document.getElementById(barArray[x].id);
             barArray[x].width = 100;
             let id = setInterval(frame, 10);
@@ -103,6 +119,7 @@ function movePet() {
                 if (barArray[x].width <= 0) {
                     clearInterval(id);
                     barArray[x].i = 100;
+                    checkIfAnimalIsDead()
                 } else {
                     barArray[x].width -= 0.125;   // change this to change speed
                     elem.style.width = barArray[x].width + "%";
