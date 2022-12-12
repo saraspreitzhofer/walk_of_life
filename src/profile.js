@@ -23,12 +23,12 @@ if (GET["animal_type"] === "dog"){
     profilePic.alt = "dog_profile"
 }
 else if (GET["animal_type"] === "elefant"){
-    profilePic.src = "./assets/2d/elefant.jpg"
+    profilePic.src = "./assets/2d/elefant_profile.jpg"
     profilePic.alt = "elefant_profile"
 }
 else if (GET["animal_type"] === "fish"){
     console.log("fish clicked")
-    profilePic.src = "assets/2d/fisch.jpg"
+    profilePic.src = "assets/2d/fisch_profile.jpg"
     profilePic.alt = "fish_profile"
 }
 
