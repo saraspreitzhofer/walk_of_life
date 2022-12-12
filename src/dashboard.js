@@ -1,3 +1,13 @@
+var selectedAnimal = "dog"
+
+var animalType = document.createElement("input")
+animalType.id="animal_type"
+animalType.type="hidden"
+animalType.name="animal_type"
+animalType.value=selectedAnimal
+var controlUnit = document.getElementById("control_unit")
+controlUnit.appendChild(animalType)
+
 var fish = {
     element : document.getElementById("fish"),
     clicked : false
@@ -43,12 +53,18 @@ function update() {
     if(dog.clicked === true) {
         clearAll()
         dog.element.style.border = "solid 5px #FFFB7D"
+        selectedAnimal = "dog"
+        animalType.value=selectedAnimal
     } else if(fish.clicked === true) {
         clearAll()
         fish.element.style.border = "solid 5px #FFFB7D"
+        selectedAnimal = "fish"
+        animalType.value=selectedAnimal
     } else if(elefant.clicked === true) {
         clearAll()
         elefant.element.style.border = "solid 5px #FFFB7D"
+        selectedAnimal = "elefant"
+        animalType.value=selectedAnimal
     }
 }
 
