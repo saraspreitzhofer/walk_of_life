@@ -66,18 +66,24 @@
     </form>
 </div>
 <a-scene
-        hello-world
         id="scene" mindar-image="imageTargetSrc: ./assets/2d/qr.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
     <a-assets>
         <!-- <img id="card" src="./assets/2d/wiese.jpeg" /> -->
-        <a-asset-item id="avatarModel" src="./assets/3d/dogrig.glb"></a-asset-item>
+        <a-asset-item id="Schaeferhund" src="./assets/3d/dogrig.glb" name="GermanSheperd"></a-asset-item>
+        <a-asset-item id="EnglischeBulldogge" src="./assets/3d/dog_englischeBulldogge.glb" name="EnglishBulldog"></a-asset-item>
+        <a-asset-item id="Schnauzer" src="./assets/3d/dog_schnauzer.glb" name="Schnauzer"></a-asset-item>
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-        <!-- <a-plane src="#card" position="0 0 0" height="5" width="10" rotation="0 0 0"></a-plane> -->
-        <a-gltf-model modify-materials rotation="90 0 0" position="0 0 0" scale="1 1 1" src="#avatarModel"
+        <a-gltf-model modify-materials rotation="0 -90 0" position="0 0 0" scale="1 1 1" src="#Schaeferhund"
+                      animation="property: rotation; to: 0 90 90; dur: 500; startEvents: foodButtonPressed"
+        ></a-gltf-model>
+        <a-gltf-model modify-materials rotation="90 0 0" position="0 0 0" scale="30 30 30" src="#EnglischeBulldogge"
+                      animation="property: rotation; to: 0 90 90; dur: 500; startEvents: foodButtonPressed"
+        ></a-gltf-model>
+        <a-gltf-model modify-materials rotation="90 0 0" position="0 0 0" scale="10 10 10" src="#Schnauzer"
                       animation="property: rotation; to: 0 90 90; dur: 500; startEvents: foodButtonPressed"
         ></a-gltf-model>
     </a-entity>

@@ -8,68 +8,68 @@ animalType.value=selectedAnimal
 var controlUnit = document.getElementById("control_unit")
 controlUnit.appendChild(animalType)
 
-var fish = {
-    element : document.getElementById("fish"),
+var EnglishBulldog = {
+    element : document.getElementById("EnglishBulldog"),
     clicked : false
 };
-var dog = {
-    element: document.getElementById("dog"),
+var GermanSheperd = {
+    element: document.getElementById("GermanSheperd"),
     clicked: false
 };
-var elefant = {
-    element : document.getElementById("elefant"),
+var Schnauzer = {
+    element : document.getElementById("Schnauzer"),
     clicked: false
 };
 
-fish.element.addEventListener("click", function (){
-    if(dog.clicked === true || elefant.clicked === true){
-        dog.clicked = false;
-        fish.clicked = false
+EnglishBulldog.element.addEventListener("click", function (){
+    if(GermanSheperd.clicked === true || Schnauzer.clicked === true){
+        GermanSheperd.clicked = false;
+        EnglishBulldog.clicked = false
     }
-    fish.clicked = true;
+    EnglishBulldog.clicked = true;
     update()
 });
 
-dog.element.addEventListener("click", function (){
-    if(elefant.clicked === true || fish.clicked === true){
-        dog.clicked = false;
-        fish.clicked = false
+GermanSheperd.element.addEventListener("click", function (){
+    if(Schnauzer.clicked === true || EnglishBulldog.clicked === true){
+        GermanSheperd.clicked = false;
+        EnglishBulldog.clicked = false
     }
-    dog.clicked = true;
+    GermanSheperd.clicked = true;
     update()
 });
 
-elefant.element.addEventListener("click", function (){
-    if(dog.clicked === true || fish.clicked === true){
-        dog.clicked = false;
-        fish.clicked = false
+Schnauzer.element.addEventListener("click", function (){
+    if(GermanSheperd.clicked === true || EnglishBulldog.clicked === true){
+        GermanSheperd.clicked = false;
+        EnglishBulldog.clicked = false
     }
-    elefant.clicked = true;
+    Schnauzer.clicked = true;
     update()
 });
 
 
 function update() {
-    if(dog.clicked === true) {
+    if(GermanSheperd.clicked === true) {
         clearAll()
-        dog.element.style.border = "solid 5px #FFFB7D"
-        selectedAnimal = "dog"
+        GermanSheperd.element.style.border = "solid 5px #FFFB7D"
+        selectedAnimal = "GermanSheperd"
         animalType.value=selectedAnimal
-    } else if(fish.clicked === true) {
+    } else if(EnglishBulldog.clicked === true) {
         clearAll()
-        fish.element.style.border = "solid 5px #FFFB7D"
-        selectedAnimal = "fish"
+        EnglishBulldog.element.style.border = "solid 5px #FFFB7D"
+        selectedAnimal = "EnglishBulldog"
         animalType.value=selectedAnimal
-    } else if(elefant.clicked === true) {
+    } else if(Schnauzer.clicked === true) {
         clearAll()
-        elefant.element.style.border = "solid 5px #FFFB7D"
-        selectedAnimal = "elefant"
+        Schnauzer.element.style.border = "solid 5px #FFFB7D"
+        selectedAnimal = "Schnauzer"
         animalType.value=selectedAnimal
     }
 }
 
 function clearAll(){
-    dog.element.style.border = "none"
-    fish.element.style.border = "none"
-    elefant.element.style.border = "none"
+    GermanSheperd.element.style.border = "none"
+    EnglishBulldog.element.style.border = "none"
+    Schnauzer.element.style.border = "none"
 }

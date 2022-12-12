@@ -18,18 +18,18 @@ text.innerText = helloText
 let profilePic = document.createElement("img")
 profilePic.id = "profile_pic"
 console.log("selected animal: ", GET["animal_type"])
-if (GET["animal_type"] === "dog"){
+if (GET["animal_type"] === "GermanSheperd"){
     profilePic.src = "./assets/2d/dog.png"
-    profilePic.alt = "dog_profile"
+    profilePic.alt = "GermanSheperd_profile"
 }
-else if (GET["animal_type"] === "elefant"){
-    profilePic.src = "./assets/2d/elefant.jpg"
-    profilePic.alt = "elefant_profile"
+else if (GET["animal_type"] === "Schnauzer"){
+    profilePic.src = "./assets/2d/dog2.png"
+    profilePic.alt = "Schnauzer_profile"
 }
-else if (GET["animal_type"] === "fish"){
+else if (GET["animal_type"] === "EnglishBulldog"){
     console.log("fish clicked")
-    profilePic.src = "assets/2d/fisch.jpg"
-    profilePic.alt = "fish_profile"
+    profilePic.src = "assets/2d/dog3.png"
+    profilePic.alt = "EnglishBulldog_profile"
 }
 
 profileDiv.appendChild(text)

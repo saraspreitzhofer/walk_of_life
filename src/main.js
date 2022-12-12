@@ -3,12 +3,34 @@ let buttonPet = document.getElementById("pet")
 let buttonFeed = document.getElementById("feed")
 let buttonDrink = document.getElementById("drink")
 let buttonWalk = document.getElementById("walk")
-let dog = document.getElementsByTagName("a-asset-item").namedItem('avatarModel')
 let sceneEl = document.querySelector('a-scene')
-let entity = sceneEl.querySelector('a-entity')
+let entity = sceneEl.querySelector('a-entity').object3D
 let gameEnded = document.getElementById('gamemessage')
 
+var GET = {};
+var queryString = window.location.search.replace(/^\?/, '');
+queryString.split(/\&/).forEach(function(keyValuePair) {
+    var paramName = keyValuePair.replace(/=.*$/, ""); // some decoding is probably necessary
+    var paramValue = keyValuePair.replace(/^[^=]*\=/, ""); // some decoding is probably necessary
+    GET[paramName] = paramValue;
+});
+
 gameEnded.style.display = "none"
+
+console.log(entity.children)
+
+//To access the right 3d model --> not tested pray for me (in case the models get loaded in a different order idk)
+if(GET["animal_type"] === "GermanSheperd") {
+    entity.children.pop()
+    entity.children.pop()
+} else if (GET["animal_type"] === "Schnauzer") {
+    entity.children.shift()
+    entity.children.shift()
+} else {
+    entity.children.pop()
+    entity.children.shift()
+}
+let model = entity.children[0]
 
 /**
  * Array that contains information and state of all progress bars
@@ -71,8 +93,8 @@ function onButtonWalk(){
 function onButtonFeed() {
     console.log("button feed")
     //TODO: How to start foodButtonPressed animation from index.html --> https://aframe.io/docs/1.3.0/components/animation.html#sidebar
-    console.log(entity)
-    entity.emit('foodButtonPressed', null, false)
+    console.log(model)
+    model.el.components.animation.beginAnimation()
     if (barArray[3].width < 75){
         barArray[3].width += 25;
     } else {
