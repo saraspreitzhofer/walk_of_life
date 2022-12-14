@@ -6,6 +6,7 @@ let buttonWalk = document.getElementById("walk")
 let sceneEl = document.querySelector('a-scene')
 let entity = sceneEl.querySelector('a-entity').object3D
 let gameEnded = document.getElementById('gamemessage')
+let gameEndedButton = document.getElementById("gameEndedButton")
 
 var GET = {};
 var queryString = window.location.search.replace(/^\?/, '');
@@ -74,6 +75,7 @@ function init() {
 // hardcoded array positions lmao fight me
 function onButtonPet(){
     console.log("button pet")
+    model.el.components.animation__pet.beginAnimation()
     if (barArray[0].width < 75){
         barArray[0].width += 25;
     } else {
@@ -83,6 +85,7 @@ function onButtonPet(){
 
 function onButtonWalk(){
     console.log("button walk")
+    model.el.components.animation__walk.beginAnimation()
     if (barArray[1].width < 75){
         barArray[1].width += 25;
     } else {
@@ -94,7 +97,7 @@ function onButtonFeed() {
     console.log("button feed")
     //TODO: How to start foodButtonPressed animation from index.html --> https://aframe.io/docs/1.3.0/components/animation.html#sidebar
     console.log(model)
-    model.el.components.animation.beginAnimation()
+    model.el.components.animation__food.beginAnimation()
     if (barArray[3].width < 75){
         barArray[3].width += 25;
     } else {
@@ -117,10 +120,12 @@ function checkIfAnimalIsDead(){
     }
 }
 
-function animalIsDead(){
-    console.log("here")
-    gameEnded.style.display = "block"
+gameEndedButton.addEventListener('click', function() {
+    window.location = "dashboard.html"
+})
 
+function animalIsDead(){
+    gameEnded.style.display = "block"
 }
 
 /**

@@ -132,6 +132,7 @@ img{
     left: 0;
     width: 30vh;
     height: 30vh;
+    z-index: 5;
     background-color: #ccc;
     border-radius: 3px;
     text-align: center;

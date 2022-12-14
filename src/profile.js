@@ -7,11 +7,8 @@ queryString.split(/\&/).forEach(function(keyValuePair) {
 });
 
 let profileDiv = document.getElementById("profile")
-// let name = document.getElementById("animal_name")
-// let name = "test"
 
 let text = document.createElement("h1")
-//let helloText = "Hello " + name + "!"
 let helloText = "Hello " + GET["animal_name"] + "!"
 text.innerText = helloText
 
@@ -21,17 +18,14 @@ console.log("selected animal: ", GET["animal_type"])
 if (GET["animal_type"] === "GermanSheperd"){
     profilePic.src = "./assets/2d/dog.png"
     profilePic.alt = "GermanSheperd_profile"
-}
-else if (GET["animal_type"] === "Schnauzer"){
+} else if (GET["animal_type"] === "Schnauzer"){
     profilePic.src = "./assets/2d/dog2.png"
     profilePic.alt = "Schnauzer_profile"
-}
-else if (GET["animal_type"] === "EnglishBulldog"){
+} else if (GET["animal_type"] === "EnglishBulldog"){
     console.log("fish clicked")
     profilePic.src = "assets/2d/dog3.png"
     profilePic.alt = "EnglishBulldog_profile"
-}
-else if (GET["animal_type"] === "none"){
+} else if (GET["animal_type"] === "none"){
     alert("Please select an animal!")
     window.location = "dashboard.html"
 }
