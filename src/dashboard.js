@@ -1,4 +1,4 @@
-var selectedAnimal = "dog"
+var selectedAnimal = "none"
 
 var animalType = document.createElement("input")
 animalType.id="animal_type"

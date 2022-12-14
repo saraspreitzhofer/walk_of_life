@@ -31,6 +31,10 @@ else if (GET["animal_type"] === "EnglishBulldog"){
     profilePic.src = "assets/2d/dog3.png"
     profilePic.alt = "EnglishBulldog_profile"
 }
+else if (GET["animal_type"] === "none"){
+    alert("Please select an animal!")
+    window.location = "dashboard.html"
+}
 
 profileDiv.appendChild(text)
 profileDiv.appendChild(profilePic)
