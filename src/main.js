@@ -45,7 +45,7 @@ let barArray = [{
     id: 'walkBar',
     i: 100,
     width: 100,
-    text: 'Lulu: '
+    text: 'Walk: '
 }, {
     id: 'thirstBar',
     i: 100,

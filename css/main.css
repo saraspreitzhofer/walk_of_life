@@ -121,6 +121,11 @@ img{
         width: 100px;
         height: 100px;
     }
+    #gamemessage {
+        width: 20vh;
+        height: 20vh;
+        font-size: small;
+    }
 }
 
 #gamemessage{
@@ -130,8 +135,8 @@ img{
     right: 0;
     bottom: 0;
     left: 0;
-    width: 30vh;
-    height: 30vh;
+    width: 40vh;
+    height: 40vh;
     z-index: 5;
     background-color: #ccc;
     border-radius: 3px;
@@ -139,3 +144,5 @@ img{
     font-family: walk_of_life_font, serif;
     align-content: center;
 }
+
+
