@@ -107,6 +107,7 @@ function onButtonFeed() {
 
 function onButtonDrink(){
     console.log("button drink")
+    model.el.components.animation__drink.beginAnimation()
     if (barArray[2].width < 75){
         barArray[2].width += 25;
     } else {
