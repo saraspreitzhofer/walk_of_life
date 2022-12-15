@@ -25,7 +25,7 @@ if (GET["animal_type"] === "GermanSheperd"){
     console.log("fish clicked")
     profilePic.src = "assets/2d/dog3.png"
     profilePic.alt = "EnglishBulldog_profile"
-} else if (GET["animal_type"] === "none"){
+} else if (GET["animal_type"] === "none" || !GET["animal_type"]){
     alert("Please select an animal!")
     window.location = "dashboard.html"
 }
