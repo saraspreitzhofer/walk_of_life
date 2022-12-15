@@ -7,7 +7,7 @@
     align-content: center;
     height: 30%;
     width: 100%;
-
+    padding-left: 18%;
 }
 
 .animal_view {
@@ -42,14 +42,14 @@ html,
 body {
     margin: 0;
     height: 100%;
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
 }
 
 #container {
     height: 100%;
     width: 100%;
     align-content: center;
-    background-color: #85FFBD;
-    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
     text-align: center;
     font-family: walk_of_life_font, serif;
     padding: 4%;
@@ -57,7 +57,7 @@ body {
 
 @media screen and (max-width: 768px){
     .animal_view{
-        width: 100%;
+        width: 70%;
         height: 20%;
     }
     .animal_picture{
@@ -67,7 +67,11 @@ body {
     }
     #control_unit{
         position: absolute;
-        top: 90%;
+        top: 15%;
         left: 5%;
+    }
+    #animal_container {
+        padding-top: 25%;
+        padding-left: 10%;
     }
 }

@@ -1,4 +1,5 @@
 var selectedAnimal = "none"
+let animalContainer = document.getElementById("animal_container")
 
 var animalType = document.createElement("input")
 animalType.id="animal_type"
